@@ -1,7 +1,11 @@
 package com.demo.awsdemo.service;
 
 public class TestService {
-    public void testMethod(){
-        System.out.println("I am test method");
-    }
+public void method(){
+System.out.println("Lets get out merge on");
 }
+
+}
+
+
+
