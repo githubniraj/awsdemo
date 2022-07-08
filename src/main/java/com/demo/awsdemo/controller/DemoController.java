@@ -32,9 +32,11 @@ public class DemoController {
     public String addUser() {
         return "Hi its Karma";
     }
-    @DeleteMapping(value="/user")
-    public String deleteUser(){
 
-        return "Delete user";
+    @DeleteMapping(value="/delete")
+    public ResponseEntity<String> deleteUser(){
+        return testService.deleteTest();
+
+
     }
 }
