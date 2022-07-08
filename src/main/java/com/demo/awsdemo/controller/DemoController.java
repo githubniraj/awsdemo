@@ -18,15 +18,10 @@ public class DemoController {
     public String getHello(){
         return "Hello Niraj! Welcome to Brucewayne";
     }
-
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public ResponseEntity<String> updateTest(@RequestBody String hello){
+    @PutMapping(value = "/update/{msg}")
+    public ResponseEntity<String> updateTest(@PathVariable(name = "msg") String hello){
         return testService.updateTest(hello);
     }
-
-
-
-
     @PostMapping(value = "/user")
     public String addUser() {
         return "Hi its Karma";
