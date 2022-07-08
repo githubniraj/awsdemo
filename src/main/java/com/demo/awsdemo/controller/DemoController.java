@@ -24,11 +24,14 @@ public class DemoController {
         return testService.updateTest(hello);
     }
 
-
-
-
     @PostMapping(value = "/user")
     public String addUser() {
         return "Hi its Karma";
+    }
+
+    @DeleteMapping(value= "/delete")
+    public ResponseEntity<String> deleteUser()
+    {
+        return testService.deleteTest();
     }
 }
