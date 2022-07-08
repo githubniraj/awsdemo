@@ -9,8 +9,8 @@ public class TestService {
         System.out.println("Modified method statement");
     }
 
-    public ResponseEntity<String> updateTest(String hello) {
+    public ResponseEntity<String> postTest() {
 
-        return  ResponseEntity.ok(String.format("%s , update successfully", hello));
+        return  ResponseEntity.ok(String.format("%s , update successfully"));
     }
 }
