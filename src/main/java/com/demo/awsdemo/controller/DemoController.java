@@ -19,8 +19,8 @@ public class DemoController {
         return "Hello Niraj! Welcome to Brucewayne";
     }
     @PutMapping(value = "/update/{msg}")
-    public ResponseEntity<String> updateTest(@PathVariable(name = "msg") String hello){
-        return testService.updateTest(hello);
+    public ResponseEntity<String> updateTest(@PathVariable(name = "msg") String msg){
+        return testService.updateTest(msg);
     }
     @PostMapping(value = "/user")
     public String addUser() {
