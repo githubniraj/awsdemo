@@ -7,17 +7,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TestService {
-
     @Autowired
     TestDao testDao;
     public void testMethod(){
         System.out.println("Modified method statement");
     }
-
     public ResponseEntity<String> updateTest(String msg) {
         return  testDao.updateTest(msg);
     }
-
     public ResponseEntity<String> deleteTest() {
        return ResponseEntity.ok(String.format( " delete successfully"));
     }
