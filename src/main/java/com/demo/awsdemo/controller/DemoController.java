@@ -14,20 +14,24 @@ public class DemoController {
 
     @Autowired
     TestService testService;
+
     @GetMapping(value = "/welcome")
-    public String getHello(){
+    public String getHello() {
         return "Hello Niraj! Welcome to Brucewayne";
     }
 
     @PutMapping(value = "/update/{msg}")
-    public ResponseEntity<String> updateTest(@PathVariable(name = "msg") String msg){
+    public ResponseEntity<String> updateTest(@PathVariable(name = "msg") String msg) {
         return testService.updateTest(msg);
     }
 
     @PostMapping(value = "/user")
-    public ResponseEntity<String> postTest(){
+    public ResponseEntity<String> postTest() {
         return testService.postTest();
     }
 
-
+    @DeleteMapping(value = "/delete")
+    public ResponseEntity<String> deleteUser() {
+        return testService.deleteTest();
+    }
 }
