@@ -1,13 +1,8 @@
 package com.demo.awsdemo.controller;
 
-import com.demo.awsdemo.dao.TestDao;
 import com.demo.awsdemo.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,31 +10,26 @@ public class DemoController {
 
     @Autowired
     TestService testService;
-    @Autowired
-    TestDao testDao;
 
-
-    @GetMapping(value = "/welcome")
-    public String getHello(){
-        return "Hello Niraj! Welcome to Brucewayne";
-    }
 
     @PutMapping(value = "/update/{msg}")
-    public ResponseEntity<String> updateTest(@PathVariable(name = "msg") String msg){
-        return testService.updateTest(msg);
+    public ResponseEntity<String> updateTest(@PathVariable(name = "msg") String msg) {
+        return ResponseEntity.ok(testService.updateTest());
     }
 
     @PostMapping(value = "/user")
-    public ResponseEntity<String> postTest(){
-        return testService.postTest();
+    public ResponseEntity<String> postTest() {
+        return ResponseEntity.ok(testService.postTest());
     }
 
-
+    @DeleteMapping(value = "/delete")
+    public ResponseEntity<String> deleteTest() {
+        return ResponseEntity.ok(testService.deleteTest());
+    }
 
     @GetMapping(value = "/account")
-    public ResponseEntity<String> getUser()
-    {
-        return testDao.getTest();
+    public ResponseEntity<String> getUser() {
+        return ResponseEntity.ok(testService.getTest());
     }
 
 }
