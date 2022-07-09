@@ -12,12 +12,12 @@ public class DemoController {
     TestService testService;
 
 
-    @PutMapping(value = "/update/{msg}")
-    public ResponseEntity<String> updateTest(@PathVariable(name = "msg") String msg) {
+    @PutMapping(value = "/update")
+    public ResponseEntity<String> updateTest() {
         return ResponseEntity.ok(testService.updateTest());
     }
 
-    @PostMapping(value = "/user")
+    @PostMapping(value = "/post")
     public ResponseEntity<String> postTest() {
         return ResponseEntity.ok(testService.postTest());
     }
@@ -27,7 +27,7 @@ public class DemoController {
         return ResponseEntity.ok(testService.deleteTest());
     }
 
-    @GetMapping(value = "/account")
+    @GetMapping(value = "/get")
     public ResponseEntity<String> getUser() {
         return ResponseEntity.ok(testService.getTest());
     }
