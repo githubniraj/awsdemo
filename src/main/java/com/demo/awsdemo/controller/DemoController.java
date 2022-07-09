@@ -1,5 +1,6 @@
 package com.demo.awsdemo.controller;
 
+import com.demo.awsdemo.dao.TestDao;
 import com.demo.awsdemo.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,10 @@ public class DemoController {
 
     @Autowired
     TestService testService;
+    @Autowired
+    TestDao testDao;
+
+
     @GetMapping(value = "/welcome")
     public String getHello(){
         return "Hello Niraj! Welcome to Brucewayne";
@@ -31,5 +36,10 @@ public class DemoController {
         return testService.deleteTest();
 
 
+    }
+    @GetMapping(value = "/account")
+    public ResponseEntity<String> getUser()
+    {
+        return testDao.getTest();
     }
 }

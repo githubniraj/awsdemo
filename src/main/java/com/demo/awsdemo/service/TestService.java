@@ -19,8 +19,5 @@ public class TestService {
        return ResponseEntity.ok(String.format( " delete successfully"));
     }
 
-    public ResponseEntity<String> deleteTest() {
 
-        return  ResponseEntity.ok(String.format("delete successfully"));
-    }
 }

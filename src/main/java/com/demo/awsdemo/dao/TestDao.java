@@ -8,4 +8,8 @@ public class TestDao {
     public ResponseEntity<String> updateTest(String msg) {
         return ResponseEntity.ok(String.format("%s, You have update the message!" , msg));
     }
+    public ResponseEntity<String> getTest() {
+
+        return  ResponseEntity.ok(String.format("get successfully"));
+    }
 }
