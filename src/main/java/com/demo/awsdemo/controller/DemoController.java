@@ -18,18 +18,16 @@ public class DemoController {
     public String getHello(){
         return "Hello Niraj! Welcome to Brucewayne";
     }
+
     @PutMapping(value = "/update/{msg}")
     public ResponseEntity<String> updateTest(@PathVariable(name = "msg") String msg){
         return testService.updateTest(msg);
     }
+
     @PostMapping(value = "/user")
-    public String addUser() {
-        return "Hi its Karma";
+    public ResponseEntity<String> postTest(){
+        return testService.postTest();
     }
-    @DeleteMapping(value="/delete")
-    public ResponseEntity<String> deleteUser(){
-        return testService.deleteTest();
 
 
-    }
 }
