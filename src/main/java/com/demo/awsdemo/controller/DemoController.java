@@ -1,6 +1,5 @@
 package com.demo.awsdemo.controller;
 
-import com.demo.awsdemo.dao.TestDao;
 import com.demo.awsdemo.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,33 +14,22 @@ public class DemoController {
 
     @Autowired
     TestService testService;
-    @Autowired
-    TestDao testDao;
-
     @GetMapping(value = "/welcome")
     public String getHello(){
         return "Hello Niraj! Welcome to Brucewayne";
     }
-
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public ResponseEntity<String> updateTest(@RequestBody String hello){
-        return testService.updateTest(hello);
+    @PutMapping(value = "/update/{msg}")
+    public ResponseEntity<String> updateTest(@PathVariable(name = "msg") String msg){
+        return testService.updateTest(msg);
     }
-
     @PostMapping(value = "/user")
     public String addUser() {
         return "Hi its Karma";
     }
-
-    @DeleteMapping(value= "/delete")
-    public ResponseEntity<String> deleteUser()
-    {
+    @DeleteMapping(value="/delete")
+    public ResponseEntity<String> deleteUser(){
         return testService.deleteTest();
-    }
 
-    @GetMapping(value = "/account")
-    public ResponseEntity<String> getUser()
-    {
-        return testDao.getTest();
+
     }
 }
