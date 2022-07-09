@@ -9,6 +9,7 @@
         <module name="awsdemo" />
       </profile>
     </annotationProcessing>
+
     <bytecodeTargetLevel>
       <module name="awsdemo" target="1.8" />
     </bytecodeTargetLevel>

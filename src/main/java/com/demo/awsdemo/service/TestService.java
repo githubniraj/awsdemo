@@ -12,10 +12,15 @@ public class TestService {
     public void testMethod(){
         System.out.println("Modified method statement");
     }
+
+    public ResponseEntity<String> postTest() {
+
+        return ResponseEntity.ok(String.format("%s , update successfully"));
+    }
     public ResponseEntity<String> updateTest(String msg) {
         return  testDao.updateTest(msg);
     }
-    public ResponseEntity<String> deleteTest() {
+    public ResponseEntity<String> deleteTest(){
        return ResponseEntity.ok(String.format( " delete successfully"));
     }
 
