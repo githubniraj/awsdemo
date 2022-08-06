@@ -10,4 +10,10 @@ public class DemoController {
     public String getHello(){
         return "Hello Niraj! Welcome to Brucewayne";
     }
+
+    public void testAjaya(){
+
+        System.out.println("Hello Ajay! Welcome to your ajay Branch");
+
+    }
 }
