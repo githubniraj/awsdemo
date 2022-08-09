@@ -22,8 +22,10 @@ public class DemoController {
         System.out.println("This is Ayusha");
     }
 
-    public void testAjay() {
-        System.out.println("This is Ayusha");
+    public void testAjaya(){
+
+        System.out.println("Hello Ajay! Welcome to your ajay Branch");
+
     }
 
 
