@@ -22,7 +22,7 @@ public class DemoController {
         System.out.println("This is Ayusha");
     }
 
-    public void testAyusha() {
+    public void testAjay() {
         System.out.println("This is Ayusha");
     }
 
