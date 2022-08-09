@@ -20,4 +20,10 @@ public class DemoController {
     public void testSaroj() {
         System.out.println("Hello,This is Saroj");
     }
+
+
+    public void testSachina() {
+        System.out.print("This is Sachina");
+
+    }
 }
