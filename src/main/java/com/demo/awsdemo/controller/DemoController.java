@@ -14,4 +14,9 @@ public class DemoController {
         System.out.println("This is Ayusha");
     }
 
+
+
+    public void testSaroj() {
+        System.out.println("Hello,This is Saroj");
+    }
 }
