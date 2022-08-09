@@ -16,4 +16,8 @@ public class DemoController {
         System.out.println("Hello Ajay! Welcome to your ajay Branch");
 
     }
+
+    public void testSaroj() {
+        System.out.println("Hello,This is Saroj");
+    }
 }
