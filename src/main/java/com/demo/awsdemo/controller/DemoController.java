@@ -1,13 +1,12 @@
 package com.demo.awsdemo.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class DemoController {
     @GetMapping(value = "/welcome")
-    public String getHello(){
+    public String getHello() {
         return "Hello Niraj! Welcome to Brucewayne";
     }
 
@@ -18,4 +17,24 @@ public class DemoController {
         System.out.println("Hello!I am bibhasa");
     }
 
+}
+    public void testAyusha() {
+        System.out.println("This is Ayusha");
+    }
+
+    public void testAyusha() {
+        System.out.println("This is Ayusha");
+    }
+
+
+
+    public void testSaroj() {
+        System.out.println("Hello,This is Saroj");
+    }
+
+
+    public void testSachina() {
+        System.out.print("This is Sachina");
+
+    }
 }
