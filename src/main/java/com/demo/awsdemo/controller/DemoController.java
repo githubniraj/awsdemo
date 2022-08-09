@@ -10,6 +10,9 @@ public class DemoController {
     public String getHello(){
         return "Hello Niraj! Welcome to Brucewayne";
     }
+    public void testAyusha() {
+        System.out.println("This is Ayusha");
+    }
 
     public void testAjaya(){
 
