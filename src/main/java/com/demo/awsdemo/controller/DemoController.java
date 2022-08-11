@@ -10,10 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
     @GetMapping(value = "/get")
     public String get() {
-        return " Test Get";
-    }
-    @GetMapping(value = "/get")
-    public String get() {
         return "Test Get";
     }
 
@@ -22,7 +18,7 @@ public class DemoController {
         return "Test Post";
     }
     @PostMapping(value = "/post")
-    public String delete() {
+    public String post() {
         return "Test Post";
     }
 
