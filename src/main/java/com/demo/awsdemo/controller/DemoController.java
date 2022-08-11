@@ -11,14 +11,9 @@ public class DemoController {
     public String get() {
         return "Test Get";
     }
-    @GetMapping(value = "/get")
-    public String get() {
-        return "Test Get";
-    }
-
 
     @PostMapping(value = "/post")
-    public String delete() {
+    public String post() {
         return "Test Post";
     }
 
