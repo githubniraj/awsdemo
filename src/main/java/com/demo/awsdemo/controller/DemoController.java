@@ -12,6 +12,11 @@ public class DemoController {
         return "Test Get";
     }
 
+    @DeleteMapping(value = "/delete")
+    public String delete() {
+        return "Test Delete";
+    }
+
     @PostMapping(value = "/post")
     public String post() {
         return "Test Post";
