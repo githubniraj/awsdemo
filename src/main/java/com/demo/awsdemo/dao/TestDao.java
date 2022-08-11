@@ -1,19 +1,19 @@
 package com.demo.awsdemo.dao;
 
 public class TestDao {
-    public String testGet() {
+    public String testGet(){
         return "Test Get";
     }
 
-    public String testDelete() {
+    public String testDelete(){
         return "Test Delete";
     }
 
-    public String testPut() {
+    public String testPut(){
         return "Test Put";
     }
 
-    public String testPost() {
+    public String testPost(){
         return "Test Post";
     }
 }

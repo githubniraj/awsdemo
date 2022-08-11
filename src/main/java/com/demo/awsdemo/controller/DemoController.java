@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class DemoController {
-
-    TestService testService = new TestService();
+   TestService testService=new TestService();
 
     @GetMapping(value = "/get")
     public String get() {
@@ -19,16 +18,16 @@ public class DemoController {
 
     @DeleteMapping(value = "/delete")
     public String delete() {
-        return "Test Post";
+        return testService.testDelete();
     }
 
     @PostMapping(value = "/post")
     public String post() {
-        return "Test Post";
+        return testService.testPost();
     }
 
     @PutMapping(value = "/put")
     public String put() {
-        return "Test Put";
+        return testService.testPut();
     }
 }
