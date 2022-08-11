@@ -1,7 +1,24 @@
 package com.demo.awsdemo.service;
 
+import com.demo.awsdemo.dao.TestDao;
+
 public class TestService {
-    public void testMethod(){
-        System.out.println("I am test method");
+    TestDao testDao = new TestDao();
+
+    public String testGet(){
+        return testDao.testGet();
     }
+
+    public String testDelete(){
+        return testDao.testDelete();
+    }
+
+    public String testPut(){
+        return testDao.testPut();
+    }
+
+    public String testPost(){
+        return testDao.testPost();
+    }
+
 }
