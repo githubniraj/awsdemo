@@ -1,9 +1,15 @@
 package com.demo.awsdemo.service;
 
 import com.demo.awsdemo.dao.TestDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class TestService {
-    TestDao testDao = new TestDao();
+
+    @Autowired
+    TestDao testDao;
 
     public String testGet(){
         return testDao.testGet();

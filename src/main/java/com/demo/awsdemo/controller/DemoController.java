@@ -1,6 +1,7 @@
 package com.demo.awsdemo.controller;
 
 import com.demo.awsdemo.service.TestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -9,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class DemoController {
-   TestService testService=new TestService();
+
+    @Autowired
+   TestService testService;
 
     @GetMapping(value = "/get")
     public String get() {
