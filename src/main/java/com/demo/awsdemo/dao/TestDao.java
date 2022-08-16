@@ -5,8 +5,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class TestDao {
-    public String testGet(){
-        return "Test Get";
+    public String testGet(String str){
+        return str;
     }
 
     public String testDelete(){

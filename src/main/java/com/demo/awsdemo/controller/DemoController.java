@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.demo.awsdemo.service.*;
+import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 public class DemoController {
@@ -14,9 +17,13 @@ public class DemoController {
     @Autowired
    TestService testService;
 
+
+    TestService testService = new TestService();
+
     @GetMapping(value = "/get")
     public String get() {
-        return testService.testGet();
+        String str = "";
+        return testService.testGet(str);
     }
 
     @DeleteMapping(value = "/delete")
