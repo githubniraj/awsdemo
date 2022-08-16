@@ -9,8 +9,8 @@ public class TestDao {
         return str;
     }
 
-    public String testDelete(){
-        return "Test Delete";
+    public String testDelete(String id){
+        return id;
     }
 
     public String testPut(){

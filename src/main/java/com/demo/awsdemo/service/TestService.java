@@ -9,8 +9,7 @@ import org.springframework.stereotype.Service;
 
 public class TestService {
 
-    @Autowired
-    TestDao testDao;
+
 
     TestDao testDao = new TestDao();
 
@@ -24,8 +23,14 @@ public class TestService {
         return testDao.testGet(str);
     }
 
-    public String testDelete(){
-        return testDao.testDelete();
+    public String testDelete(String id){
+        if (id == null)
+            return null;
+        if(id.isEmpty())
+            return "";
+        if (id.equalsIgnoreCase("ajay"))
+            return id;
+        return testDao.testDelete(id);
     }
 
     public String testPut(){

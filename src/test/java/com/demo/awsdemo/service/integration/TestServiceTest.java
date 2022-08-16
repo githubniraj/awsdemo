@@ -40,6 +40,31 @@ public class TestServiceTest {
         String actualValue  = testService.testGet("bipasha");
         Assertions.assertEquals("bipasha", actualValue);
     }
+    @Test
+    void testDeleteNull(){
+        String actualValue  = testService.testDelete(null);
+        Assertions.assertEquals(null, actualValue);
+    }
+
+
+    @Test
+    void testDeleteEmpty(){
+        String actualValue  = testService.testDelete("");
+        Assertions.assertEquals("", actualValue);
+    }
+
+    @Test
+    void testDeleteWithAjay(){
+        String actualValue  = testService.testDelete("ajay");
+        Assertions.assertEquals("ajay", actualValue);
+    }
+
+    @Test
+    void testDeleteWithSaroj(){
+        String actualValue  = testService.testDelete("saroj");
+        Assertions.assertEquals("saroj", actualValue);
+    }
+
 
 
 }

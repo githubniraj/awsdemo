@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class DemoController {
 
-    @Autowired
-   TestService testService;
+
 
 
     TestService testService = new TestService();
@@ -27,8 +26,8 @@ public class DemoController {
     }
 
     @DeleteMapping(value = "/delete")
-    public String delete() {
-        return testService.testDelete();
+    public String delete(String id) {
+        return testService.testDelete(id);
     }
 
     @PostMapping(value = "/post")
