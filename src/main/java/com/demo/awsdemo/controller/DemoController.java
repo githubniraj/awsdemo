@@ -1,15 +1,19 @@
 package com.demo.awsdemo.controller;
 
-import com.demo.awsdemo.service.TestService;
+import com.demo.awsdemo.service.*;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 public class DemoController {
+
+
     TestService testService = new TestService();
 
     @GetMapping(value = "/get")
     public String get() {
-        return testService.testGet();
+        String str = "";
+        return testService.testGet(str);
     }
 
     @DeleteMapping(value = "/delete")
