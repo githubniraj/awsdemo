@@ -1,11 +1,20 @@
 package com.demo.awsdemo.controller;
 
+import com.demo.awsdemo.service.TestService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import com.demo.awsdemo.service.*;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 public class DemoController {
+
+
 
 
     TestService testService = new TestService();
@@ -17,17 +26,17 @@ public class DemoController {
     }
 
     @DeleteMapping(value = "/delete")
-    public String delete() {
-        return testService.testDelete();
+    public String delete(String id) {
+        return testService.testDelete(id);
     }
 
     @PostMapping(value = "/post")
-    public String post() {
-        return testService.testPost();
+    public String post(String id) {
+        return testService.testPost(id);
     }
 
     @PutMapping(value = "/put")
-    public String put() {
-        return testService.testPut();
+    public String put(String id) {
+        return testService.testPut(id);
     }
 }
