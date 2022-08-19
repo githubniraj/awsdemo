@@ -13,11 +13,11 @@ public class TestDao {
         return id;
     }
 
-    public String testPut(){
-        return "Test Put";
+    public String testPut(String id){
+        return id;
     }
 
-    public String testPost(){
-        return "Test Post";
+    public String testPost(String id){
+        return id;
     }
 }

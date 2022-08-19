@@ -31,12 +31,12 @@ public class DemoController {
     }
 
     @PostMapping(value = "/post")
-    public String post() {
-        return testService.testPost();
+    public String post(String id) {
+        return testService.testPost(id);
     }
 
     @PutMapping(value = "/put")
-    public String put() {
-        return testService.testPut();
+    public String put(String id) {
+        return testService.testPut(id);
     }
 }
