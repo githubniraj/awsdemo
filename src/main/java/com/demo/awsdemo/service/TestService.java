@@ -49,6 +49,10 @@ public class TestService {
             return "";
         if (id.equalsIgnoreCase("ajay"))
             return id;
+        if (id.equalsIgnoreCase("saroj")) //other service
+            return id;
+        if(id.equalsIgnoreCase("exception"))
+            return id;
         return testDao.testPost(id);
     }
 

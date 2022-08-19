@@ -47,12 +47,10 @@ public class TestServiceTest {
 
     @Test
     public void testGetWithSaroj(){
-
         String actualResult=testService.testGet("saroj");
         Assertions.assertEquals("saroj",actualResult);
         verify(testDao,times(0)).testGet(anyString());
     }
-
 
     @Test
     public void testGetWithException(){
@@ -69,12 +67,40 @@ public class TestServiceTest {
         verify(testDao,times(1)).testGet(anyString());
     }
 
+    @Test
+    public void testPostNull(){
+        String actualResult=testService.testPost(null);
+        Assertions.assertEquals(null,actualResult);
+        verify(testDao,times(0)).testPost(anyString());
+    }
 
+    @Test
+    public void testPostEmpty(){
+        String actualResult=testService.testPost("");
+        Assertions.assertEquals("",actualResult);
+        verify(testDao,times(0)).testPost(anyString());
+    }
 
+    @Test
+    public void testPostWithSaroj(){
+        String actualResult=testService.testPost("saroj");
+        Assertions.assertEquals("saroj",actualResult);
+        verify(testDao,times(0)).testPost(anyString());
+    }
 
+    @Test
+    public void testPostWithException(){
+        String actualResult=testService.testPost("exception");
+        Assertions.assertEquals("exception",actualResult);
+        verify(testDao,times(0)).testPost(anyString());
+    }
 
-
-
-
+    @Test
+    public void testPostWithCorrectInput(){
+        when(testDao.testPost(anyString())).thenReturn("Hello! World");
+        String actualResult=testService.testPost("Hello! World");
+        Assertions.assertEquals("Hello! World",actualResult);
+        verify(testDao,times(1)).testPost(anyString());
+    }
 
 }
