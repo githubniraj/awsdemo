@@ -1,1 +1,1 @@
-# awsdemo
+# This is the demo project for Onboarding.
