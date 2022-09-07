@@ -1,1 +1,1 @@
-<h1>This is the demo for Onboarding</h1>
+<h1>This is the Demo for OnboarDing.</h1>
