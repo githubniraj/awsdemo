@@ -22,7 +22,6 @@ public class DemoController {
 
     @PutMapping(value = "/put")
     public ResponseEntity<String> put(){
-
         return demoService.put();
     }
 
