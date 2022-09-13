@@ -19,6 +19,7 @@ public class DemoController {
     public ResponseEntity<String> get() {
         return demoService.get();
     }
+
     @PutMapping(value = "/put")
     public ResponseEntity<String> put(){
         return demoService.put();

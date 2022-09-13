@@ -69,7 +69,7 @@
                 </executions>
             </plugin>
         </plugins>
-        <finalName>javaproject</finalName>
+        <finalName>demo-project</finalName>
     </build>
 
 </project>
