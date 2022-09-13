@@ -20,8 +20,9 @@ public class DemoController {
         return demoService.get();
     }
 
-    @PutMapping
+    @PutMapping(value = "/put")
     public ResponseEntity<String> put(){
+
         return demoService.put();
     }
 
