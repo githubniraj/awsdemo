@@ -31,26 +31,10 @@ public class DemoService {
         return demoDao.put();
     }
 
-    public ResponseEntity<String> delete() {
-        return demoDao.delete();
-
-    public ResponseEntity<String> get() {
-        return ResponseEntity.ok("ok");
-    }
-    public ResponseEntity<String> put(){
-        return ResponseEntity.ok("ok");
-
-    }
-
-    public ResponseEntity<String> post(){
-        return ResponseEntity.ok("ok");
-    }
 
 
-    public ResponseEntity<String> delete() {
 
-        return ResponseEntity.ok("ok");
 
-    }
+
 
 }
