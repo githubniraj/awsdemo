@@ -27,7 +27,7 @@ public class DemoController {
 
     @PostMapping(value ="/post")
     public ResponseEntity<String> post(){
-        return demoService.post();
+        return demoService.post("");
     }
 
     @DeleteMapping(value = "/delete")
