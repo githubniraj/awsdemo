@@ -69,7 +69,7 @@
                 </executions>
             </plugin>
         </plugins>
-        <finalName>aws-docker-project</finalName>
+        <finalName>demo-project</finalName>
     </build>
 
 </project>

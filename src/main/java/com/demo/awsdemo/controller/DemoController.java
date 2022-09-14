@@ -1,6 +1,8 @@
 package com.demo.awsdemo.controller;
 
 
+import com.demo.awsdemo.service.DemoService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -11,23 +13,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DemoController {
 
+    DemoService demoService = new DemoService();
+
     @GetMapping(value = "/get")
-    public String get() {
-        return null;
+    public ResponseEntity<String> get() {
+        return demoService.get();
     }
-    @PutMapping(value="/Put")
-    public String put(){
-        return null;
+
+    @PutMapping(value = "/put")
+    public ResponseEntity<String> put(){
+        return demoService.put();
     }
 
     @PostMapping(value ="/post")
-    public String post(){
-        return null;
+    public ResponseEntity<String> post(){
+        return demoService.post();
     }
 
-
     @DeleteMapping(value = "/delete")
-    public String delete() {
-        return null;
+    public ResponseEntity<String> delete() {
+        return demoService.delete();
     }
 }
