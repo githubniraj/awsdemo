@@ -52,11 +52,26 @@ public class DemoServiceTest {
         verify(demoDao, times(2)).post(anyString());
     }
 
+    @Test
+    void testDeleteWithNull() {
+        ResponseEntity response = demoService.delete(null);
+        Assertions.assertEquals(null,response);
+        verify(demoDao, times(0)).delete(anyString());
+    }
 
+    @Test
+    void testDeleteWithValidInput(){
+        when(demoDao.delete(anyString())).thenReturn(ResponseEntity.ok("Namshang"));
+        ResponseEntity response = demoService.delete("Namshang");
+        String responseBody = (String) response.getBody();
+        Assertions.assertEquals("Namshang", responseBody);
 
+        when(demoDao.delete(anyString())).thenReturn(ResponseEntity.ok("Jagdish"));
+        ResponseEntity response1 = demoService.delete("Jagdish");
+        String responseBody1 = (String) response1.getBody();
+        Assertions.assertEquals("Jagdish",responseBody1);
 
-
-
-
+        verify(demoDao, times(2)).delete(anyString());
+    }
 
 }
