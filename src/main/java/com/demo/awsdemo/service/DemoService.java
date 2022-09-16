@@ -1,13 +1,10 @@
 package com.demo.awsdemo.service;
 
-
 import com.demo.awsdemo.dao.DemoDao;
 import org.springframework.http.HttpHeaders;
-
 import org.springframework.http.ResponseEntity;
 
 public class DemoService {
-
 
     DemoDao demoDao = new DemoDao();
 
@@ -21,20 +18,22 @@ public class DemoService {
         return demoDao.post(input);
     }
 
-
-
+    public ResponseEntity<String> delete(String input) {
+        if(input == null || input.isEmpty())
+            return null;
+        if(input.equalsIgnoreCase("ThrowsTest"))
+            throw new IllegalArgumentException("Exception");
+        if(input.equalsIgnoreCase("namsang"))
+            return ResponseEntity.ok("Invalid");
+        return demoDao.delete(input);
+    }
 
     public ResponseEntity<String> get() {
         return demoDao.get();
     }
+
     public ResponseEntity<String> put(){
         return demoDao.put();
     }
-
-
-
-
-
-
 
 }

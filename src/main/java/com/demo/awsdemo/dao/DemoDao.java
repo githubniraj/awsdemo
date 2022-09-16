@@ -4,11 +4,6 @@ import org.springframework.http.ResponseEntity;
 
 public class DemoDao {
 
-    public ResponseEntity<String> post(String input){
-        return ResponseEntity.ok(input);
-    }
-
-
     public ResponseEntity<String> get() {
         return ResponseEntity.ok("ok");
     }
@@ -17,8 +12,12 @@ public class DemoDao {
         return ResponseEntity.ok("ok");
     }
 
-    public ResponseEntity<String> delete() {
+    public ResponseEntity<String> post(){
         return ResponseEntity.ok("ok");
+    }
+
+    public ResponseEntity<String> delete(String input) {
+        return ResponseEntity.ok(input);
     }
 
 }
