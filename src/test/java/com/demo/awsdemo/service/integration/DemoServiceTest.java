@@ -58,42 +58,8 @@ public class DemoServiceTest {
         Assertions.assertEquals("mangal", responseBody);
     }
 
-    @Test
-    void testDeleteWithNull() {
-        ResponseEntity response = service.post(null);
-        Assertions.assertEquals(null, response);
-    }
 
-    @Test
-    void testDeleteWithEmpty() {
-        ResponseEntity response = service.post("");
-        Assertions.assertEquals(null, response);
-    }
 
-    @Test
-    void testDeleteWithThrows() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            service.delete("ThrowsTest");
-        });
-        String expectedMessage = "Exception";
-        String actualMessage = exception.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
-    }
 
-    @Test
-    void testDeleteWithNamsang() {
-        String input = "Namsang";
-        ResponseEntity response = service.delete(input);
-        String actual= (String)response.getBody();
-        Assertions.assertEquals("Invalid",actual);
-    }
-
-    @Test
-    void testDelete() {
-        String input = "anything";
-        ResponseEntity response = service.delete(input);
-        String responseBody = (String) response.getBody();
-        Assertions.assertEquals("anything", responseBody);
-    }
 
 }

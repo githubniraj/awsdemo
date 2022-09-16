@@ -1,12 +1,17 @@
 package com.demo.awsdemo.service;
 
 import com.demo.awsdemo.dao.DemoDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
+@Service
 public class DemoService {
 
-    DemoDao demoDao = new DemoDao();
+
+    @Autowired
+    DemoDao demoDao;
 
     public ResponseEntity<String> post(String input){
         if(input == null || input.isEmpty())
