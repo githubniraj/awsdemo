@@ -12,12 +12,12 @@ public class DemoDao {
         return ResponseEntity.ok("ok");
     }
 
-    public ResponseEntity<String> post(){
-        return ResponseEntity.ok("ok");
+    public ResponseEntity<String> post(String input){
+        return ResponseEntity.ok(input);
     }
 
-    public ResponseEntity<String> delete() {
-        return ResponseEntity.ok("ok");
+    public ResponseEntity<String> delete(String input) {
+        return ResponseEntity.ok(input);
     }
 
 }

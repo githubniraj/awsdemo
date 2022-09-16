@@ -27,11 +27,11 @@ public class DemoController {
 
     @PostMapping(value ="/post")
     public ResponseEntity<String> post(){
-        return demoService.post();
+        return demoService.post("");
     }
 
     @DeleteMapping(value = "/delete")
     public ResponseEntity<String> delete() {
-        return demoService.delete();
+        return demoService.delete("");
     }
 }
