@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class DemoController {
-    @GetMapping("/welcome")
-    public String getHello() {
+    @GetMapping(value = "/welcome")
+    public String getHello(){
         return "Hello Mahima! Welcome to Dallas";
     }
 
@@ -25,5 +25,3 @@ public class DemoController {
     public String deleteHello(@RequestBody String name){
         return name.toUpperCase() +", YOUR MESSAGE HAS BEEN DELETED!!";
     }
-
-}
