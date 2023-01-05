@@ -1,12 +1,15 @@
 package com.demo.awsdemo.controller;
 
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class DemoController {
     @GetMapping(value = "/welcome")
-    public String getHello(){
+    public String getHello() {
         return "Hello Mahima! Welcome to Dallas";
     }
 
@@ -16,12 +19,9 @@ public class DemoController {
         return "Hey Mahima, your message has been posted!!\n" + message;
     }
 
-    @PutMapping("/welcome")
-    public String updateHello(@RequestBody String message){
-        return "Hey Mahima, your message has been updated!!\n" + message;
+    @PutMapping(value = "/welcome")
+    public String putHello() {
+        return "Hello Namshang! Welcome to NYC";
     }
 
-    @DeleteMapping("/welcome")
-    public String deleteHello(@RequestBody String name){
-        return name.toUpperCase() +", YOUR MESSAGE HAS BEEN DELETED!!";
-    }
+}
