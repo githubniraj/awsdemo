@@ -14,7 +14,7 @@ public class DemoController {
     }
 
     //@PostMapping to feature branch
-    @PostMapping("/welcome")
+    @PostMapping(value = "/welcome")
     public String postHello(@RequestBody String message) {
         return "Hey Mahima, your message has been posted!!\n" + message;
     }
@@ -24,9 +24,15 @@ public class DemoController {
         return "Hello Namshang! Welcome to NYC";
     }
 
-    @DeleteMapping(value = "/welcome")
-    public String deleteHello() {
-        return "Hello Namshang! Welcome to NYC";
+    @DeleteMapping(value="/welcome")
+    public String deleteHello(){
+        return "Hello, your file has been deleted";
     }
+
+    @DeleteMapping(value="/welcome")
+    public String deleteHello1(){
+        return "Ayan is deleting something.";
+    }
+
 
 }
