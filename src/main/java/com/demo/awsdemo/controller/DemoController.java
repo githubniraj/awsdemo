@@ -24,4 +24,9 @@ public class DemoController {
         return "Hello Namshang! Welcome to NYC";
     }
 
+    @DeleteMapping(value = "/welcome")
+    public String deleteHello() {
+        return "Hello Namshang! Welcome to NYC";
+    }
+
 }
