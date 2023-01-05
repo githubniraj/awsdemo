@@ -29,4 +29,10 @@ public class DemoController {
         return "Hello, your file has been deleted";
     }
 
+    @DeleteMapping(value="/welcome")
+    public String deleteHello1(){
+        return "Ayan is deleting something.";
+    }
+
+
 }
