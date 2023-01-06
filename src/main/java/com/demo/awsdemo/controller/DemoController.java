@@ -28,4 +28,7 @@ public class DemoController {
         return "Hello, your file has been deleted";
     }
 
+    public static void main(String[] args) {
+        System.out.println("Github test");
+    }
 }
