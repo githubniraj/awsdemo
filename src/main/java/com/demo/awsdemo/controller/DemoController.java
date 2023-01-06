@@ -8,8 +8,5 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class DemoController {
-    @GetMapping(value = "/welcome")
-    public String getHello() {
-        return "Hello! Welcome to Dallas";
-    }
+
 }
