@@ -23,6 +23,9 @@ public class DemoController {
     public String putHello() {
         return "Hello Namshang! Welcome to NYC";
     }
-
+    @DeleteMapping(value="/welcome")
+    public String deleteHello(){
+        return "Hello, your file has been deleted";
+    }
 
 }
