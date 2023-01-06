@@ -33,4 +33,7 @@ public class DemoController {
         return "Hello sonam! Welcome to NYC";
     }
 
+    public static void main(String[] args) {
+        System.out.println("Github test");
+    }
 }
