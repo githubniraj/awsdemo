@@ -23,6 +23,4 @@ public class DemoController {
     public String putHello() {
         return "Hello Namshang! Welcome to NYC";
     }
-
-
 }
