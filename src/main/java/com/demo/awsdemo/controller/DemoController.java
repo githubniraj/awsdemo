@@ -24,4 +24,3 @@ public class DemoController {
         return "Hello Namshang! Welcome to NYC";
     }
 }
-
