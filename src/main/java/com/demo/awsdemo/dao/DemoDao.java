@@ -1,6 +1,7 @@
 package com.demo.awsdemo.dao;
 
 import com.demo.awsdemo.bean.Student;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class DemoDao
 {
-    static HashMap<Integer, Student> studentsMap;
+    private static HashMap<Integer, Student> studentsMap;
 
     public DemoDao()
     {
@@ -50,12 +51,13 @@ public class DemoDao
     }
 
     //Add students and automatically generate id using utility method
-    public Student demoAdd (Student student)
-    {
+    public Student demoAdd(Student student) {
+        if (studentsMap.containsKey(student.getId())) {
+            throw new RuntimeException("Id exist already!!!!!");
+        }
         student.setId(demoGetMaxId());
         studentsMap.put(student.getId(), student);
         return student;
-
     }
 
     //utility method to get max id
