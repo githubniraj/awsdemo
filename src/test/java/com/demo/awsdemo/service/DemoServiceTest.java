@@ -53,11 +53,29 @@ public class DemoServiceTest
     }
 
     @Test
-    void testAddStudents(){
-       Student student = new Student(1, "Mahima");
+    void testAddStudents() {
+        Student student = new Student(3, "Mahima");
         Student addStudent = demoService.addStudents(student);
-
         assertNotNull(addStudent);
+        Assertions.assertEquals("Mahima", addStudent.getName());
+        Assertions.assertEquals(3, addStudent.getId());
+    }
+
+    @Test
+    void testAddStudentsAlreadyExists() {
+        RuntimeException thrown = Assertions.assertThrows(RuntimeException.class, () -> {
+            Student student = new Student(2, "Mahima");
+            demoService.addStudents(student);
+        });
+        Assertions.assertEquals("Id exist already!!!!!", thrown.getMessage());
+    }
+
+    @Test
+    void testAddStudentsNull() {
+        NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, () -> {
+            demoService.addStudents(null);
+        });
+        Assertions.assertEquals("Null input", thrown.getMessage());
     }
 
 }
