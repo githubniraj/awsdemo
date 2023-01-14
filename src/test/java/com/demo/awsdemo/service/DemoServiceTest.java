@@ -9,6 +9,8 @@ import org.junit.jupiter.api.TestInstance;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class DemoServiceTest
 {
@@ -49,4 +51,13 @@ public class DemoServiceTest
         });
         Assertions.assertEquals("Invalid input", thrown.getMessage());
     }
+
+    @Test
+    void testAddStudents(){
+       Student student = new Student(1, "Mahima");
+        Student addStudent = demoService.addStudents(student);
+
+        assertNotNull(addStudent);
+    }
+
 }
