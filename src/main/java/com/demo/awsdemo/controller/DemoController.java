@@ -12,11 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DemoController {
 
-
-
-
     @GetMapping(value = "/get")
     public String get() {
-        return null;
+        return "niraj";
     }
 }
