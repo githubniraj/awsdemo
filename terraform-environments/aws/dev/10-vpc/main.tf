@@ -21,10 +21,11 @@ terraform {
   backend "remote" {
     # Update to your Terraform Cloud organization
     organization = "thothit-org"
-
+    hostname = "app.terraform.io"
     workspaces {
       name = "kubernetes-ops-staging-10-vpc"
     }
+    token = "ezKTj9Hz9OoB6A.atlasv1.tf5rYMDDzZf9tD7Wxz0zJMOBMIVRnnk2dpyPZEwwWGHVowqjQh8XSGU9w9DyBC58Vdk"
   }
 }
 
