@@ -1,7 +1,7 @@
 locals {
   aws_region       = "us-east-1"
   environment_name = "dev"
-  tags = {
+  tags             = {
     ops_env              = "${local.environment_name}"
     ops_managed_by       = "terraform",
     ops_source_repo      = "kubernetes-ops",
@@ -20,7 +20,7 @@ terraform {
   backend "remote" {
     # Update to your Terraform Cloud organization
     organization = "thothit-org"
-    hostname = "app.terraform.io"
+    hostname     = "app.terraform.io"
     workspaces {
       name = "kubernetes-ops-staging-10-vpc"
     }
