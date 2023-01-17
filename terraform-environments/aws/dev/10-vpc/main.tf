@@ -17,10 +17,10 @@ terraform {
       version = ">= 3.37.0"
     }
   }
-
   backend "remote" {
     # Update to your Terraform Cloud organization
     organization = "thothit-org"
+    hostname = "app.terraform.io"
     workspaces {
       name = "kubernetes-ops-staging-10-vpc"
     }
