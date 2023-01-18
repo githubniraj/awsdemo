@@ -38,7 +38,7 @@ public class DemoServiceTest
     void testGetStudentbyIDDOE() {
         RuntimeException thrown = Assertions.assertThrows(RuntimeException.class, () -> {
             //Code under test
-            demoService.getStudentsbyID(3);
+            demoService.getStudentsbyID(30);
         });
         Assertions.assertEquals("Id does not exist!!!!!", thrown.getMessage());
     }
@@ -54,11 +54,11 @@ public class DemoServiceTest
 
     @Test
     void testAddStudents() {
-        Student student = new Student(3, "Mahima");
+        Student student = new Student(4, "Alisha");
         Student addStudent = demoService.addStudents(student);
         assertNotNull(addStudent);
-        Assertions.assertEquals("Mahima", addStudent.getName());
-        Assertions.assertEquals(3, addStudent.getId());
+        Assertions.assertEquals("Alisha", addStudent.getName());
+        Assertions.assertEquals(4, addStudent.getId());
     }
 
     @Test
@@ -102,4 +102,27 @@ public class DemoServiceTest
         });
         Assertions.assertEquals("Name does not exist!", thrown.getMessage());
     }
+
+    @Test
+    void testUpdateStudent()
+    {
+        Student student= new Student(3,"Alisha");
+        Student addStudent = demoService.addStudents(student);
+        assertNotNull(addStudent);
+        Assertions.assertEquals("Alisha",addStudent.getName());
+        Assertions.assertEquals(3,addStudent.getId());
+        Student updateStudent = new Student(3, "Mahima");
+        Student updateStudent1 = demoService.updateStudents(updateStudent);
+        Assertions.assertEquals("Mahima",updateStudent.getName());
+        Assertions.assertEquals(3,updateStudent1.getId());
+    }
+
+  /* @Test
+    void testUpdateStudentsAlreadyExists() {
+        RuntimeException thrown = Assertions.assertThrows(RuntimeException.class, () -> {
+            Student student = new Student(4, "Mahima");
+            demoService.updateStudents(student);
+        });
+        Assertions.assertEquals("Cannot update as Id exist already!!!!!", thrown.getMessage());
+    }*/
 }
