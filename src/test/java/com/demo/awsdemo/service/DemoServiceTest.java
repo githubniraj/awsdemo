@@ -78,4 +78,28 @@ public class DemoServiceTest
         Assertions.assertEquals("Null input", thrown.getMessage());
     }
 
+    @Test
+    void testGetStudentbyName() {
+        Student student =  demoService.getStudentsbyName("Deepa");
+        Assertions.assertEquals(2,student.getId());
+        Assertions.assertEquals("Deepa", student.getName());
+    }
+
+    @Test
+    void testGetStudentbyNameNull() {
+        NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, () -> {
+            //Code under test
+            demoService.getStudentsbyName(null);
+        });
+        Assertions.assertEquals("Null input", thrown.getMessage());
+    }
+
+    @Test
+    void testGetStudentbyNameDoesnotExist() {
+        RuntimeException thrown = Assertions.assertThrows(RuntimeException.class, () -> {
+            //Code under test
+            demoService.getStudentsbyName("Puja");
+        });
+        Assertions.assertEquals("Name does not exist!", thrown.getMessage());
+    }
 }
