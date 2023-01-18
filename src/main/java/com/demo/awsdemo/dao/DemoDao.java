@@ -72,12 +72,15 @@ public class DemoDao
 
     //Update existing students
 
-    public Student demoUpdate (Student student)
+    public Student demoUpdate (Student student) throws RuntimeException
     {
-
-        if (student.getId()>0)
+        if (studentsMap.containsKey(student.getId()) || student.getId()>0)
+        {
             studentsMap.put(student.getId(), student);
-        return student;
+            return student;
+        }
+        else
+            throw new RuntimeException("Cannot update as Id exist already!!!!!");
     }
 
     //Delete existing students by id
