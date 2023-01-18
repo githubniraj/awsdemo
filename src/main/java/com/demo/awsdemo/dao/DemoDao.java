@@ -39,15 +39,15 @@ public class DemoDao
     }
 
     //Get students by name
-    public Student demogetbyName (String name)
-    {
+    public Student demogetbyName (String name) {
         Student student = null;
-        for (int i: studentsMap.keySet())
-        {
-            if (studentsMap.get(i).getName().equals(name))
+        for (int i : studentsMap.keySet()) {
+            if (studentsMap.get(i).getName().equals(name)) {
                 student = studentsMap.get(i);
+                return student;
+            }
         }
-        return student;
+        throw new RuntimeException("Name does not exist!");
     }
 
     //Add students and automatically generate id using utility method

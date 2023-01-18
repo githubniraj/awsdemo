@@ -21,7 +21,8 @@ public class DemoService {
 
     public Student getStudentsbyName (String name)
     {
-
+        if (name == null )
+            throw new NullPointerException("Null input");
         return demoDao.demogetbyName(name);
     }
 
