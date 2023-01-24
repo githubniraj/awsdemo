@@ -22,7 +22,6 @@ public class DemoController
         return demoService.getallStudents();
     }
 
-
     //Returns students using their id
     @GetMapping(value = "/getallstudents/{id}")
     public Student getStudentsbyID(@PathVariable(value ="id") int id)

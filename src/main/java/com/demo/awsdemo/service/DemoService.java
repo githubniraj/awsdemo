@@ -4,11 +4,12 @@ import com.demo.awsdemo.bean.Student;
 import com.demo.awsdemo.dao.DemoDao;
 import java.util.List;
 
-public class DemoService {
-
+public class DemoService
+{
     private DemoDao demoDao = new DemoDao();
 
-    public List<Student> getallStudents() {
+    public List<Student> getallStudents()
+    {
         return demoDao.demoGet();
     }
 
@@ -33,16 +34,13 @@ public class DemoService {
         return demoDao.demoAdd(student);
     }
 
-
     public Student updateStudents (Student student)
     {
         return demoDao.demoUpdate(student);
     }
 
-
     public String deleteStudents(int id)
     {
         return demoDao.demoDelete(id);
     }
-
 }
