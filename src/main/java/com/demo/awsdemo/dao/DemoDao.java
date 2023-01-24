@@ -85,9 +85,14 @@ public class DemoDao
 
     //Delete existing students by id
 
-    public String demoDelete (int id)
+    public String demoDelete (int id) throws RuntimeException
     {
-        studentsMap.remove(id);
-        return "It's removed okay :). Please check it to make sure.";
+        if(studentsMap.containsKey(id))
+        {
+            studentsMap.remove(id);
+            return "It's removed okay :). Please check it to make sure.";
+
+        }
+        throw new RuntimeException("Id does not exist!!!!!");
     }
 }

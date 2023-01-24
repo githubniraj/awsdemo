@@ -1,7 +1,8 @@
 
-package com.demo.awsdemo.service;
+package com.demo.awsdemo.service.integration;
 
 import com.demo.awsdemo.bean.Student;
+import com.demo.awsdemo.service.DemoService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -22,20 +23,23 @@ public class DemoServiceTest
     }
 
     @Test
-    void testGetAllStudents() {
+    void testGetAllStudents()
+    {
        List<Student> listStudents =  demoService.getallStudents();
         Assertions.assertTrue(listStudents.size()>=2);
     }
 
     @Test
-    void testGetStudentbyID() {
+    void testGetStudentbyID()
+    {
         Student student =  demoService.getStudentsbyID(1);
         Assertions.assertEquals(1,student.getId());
         Assertions.assertEquals("Namshang", student.getName());
     }
 
     @Test
-    void testGetStudentbyIDDOE() {
+    void testGetStudentbyIDDOE()
+    {
         RuntimeException thrown = Assertions.assertThrows(RuntimeException.class, () -> {
             //Code under test
             demoService.getStudentsbyID(30);
@@ -44,7 +48,8 @@ public class DemoServiceTest
     }
 
     @Test
-    void testGetStudentbyInvalidInput() {
+    void testGetStudentbyInvalidInput()
+    {
         IllegalArgumentException thrown = Assertions.assertThrows( IllegalArgumentException.class, () -> {
             //Code under test
             demoService.getStudentsbyID(0);
@@ -62,7 +67,8 @@ public class DemoServiceTest
     }
 
     @Test
-    void testAddStudentsAlreadyExists() {
+    void testAddStudentsAlreadyExists()
+    {
         RuntimeException thrown = Assertions.assertThrows(RuntimeException.class, () -> {
             Student student = new Student(2, "Mahima");
             demoService.addStudents(student);
@@ -71,7 +77,8 @@ public class DemoServiceTest
     }
 
     @Test
-    void testAddStudentsNull() {
+    void testAddStudentsNull()
+    {
         NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, () -> {
             demoService.addStudents(null);
         });
@@ -79,14 +86,16 @@ public class DemoServiceTest
     }
 
     @Test
-    void testGetStudentbyName() {
+    void testGetStudentbyName()
+    {
         Student student =  demoService.getStudentsbyName("Deepa");
         Assertions.assertEquals(2,student.getId());
         Assertions.assertEquals("Deepa", student.getName());
     }
 
     @Test
-    void testGetStudentbyNameNull() {
+    void testGetStudentbyNameNull()
+    {
         NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, () -> {
             //Code under test
             demoService.getStudentsbyName(null);
@@ -95,7 +104,8 @@ public class DemoServiceTest
     }
 
     @Test
-    void testGetStudentbyNameDoesnotExist() {
+    void testGetStudentbyNameDoesnotExist()
+    {
         RuntimeException thrown = Assertions.assertThrows(RuntimeException.class, () -> {
             //Code under test
             demoService.getStudentsbyName("Puja");
@@ -117,10 +127,23 @@ public class DemoServiceTest
         Assertions.assertEquals(3,updateStudent1.getId());
     }
 
+    @Test
+    void deleteGetStudentbyIDDOE()
+    {
+        RuntimeException thrown = Assertions.assertThrows(RuntimeException.class, () ->
+        {
+            //Code under test
+            demoService.deleteStudents(30);
+        });
+        Assertions.assertEquals("Id does not exist!!!!!", thrown.getMessage());
+    }
+
+
+
   /* @Test
     void testUpdateStudentsAlreadyExists() {
         RuntimeException thrown = Assertions.assertThrows(RuntimeException.class, () -> {
-            Student student = new Student(4, "Mahima");
+            Student student = new Student(3, "Mahima");
             demoService.updateStudents(student);
         });
         Assertions.assertEquals("Cannot update as Id exist already!!!!!", thrown.getMessage());
