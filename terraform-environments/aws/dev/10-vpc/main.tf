@@ -14,10 +14,8 @@ locals {
 terraform {
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
-      version = ">= 3.37.0"
-      access_key = "AKIASN6J7ZDA262FLYVZ"
-      secret_key = "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"
+      source     = "hashicorp/aws"
+      version    = ">= 3.37.0"
     }
   }
   backend "remote" {
@@ -26,7 +24,7 @@ terraform {
     workspaces {
       name = "kubernetes-ops-staging-10-vpc"
     }
-    token      = "26S2C8xD2hy1hA.atlasv1.Ks2FEQd85VEXn3NscMM3t4LihTLDRbGQADe2MmtowvsIE1UORipJN9sxRvOWYPycCpM"
+    token = "26S2C8xD2hy1hA.atlasv1.Ks2FEQd85VEXn3NscMM3t4LihTLDRbGQADe2MmtowvsIE1UORipJN9sxRvOWYPycCpM"
   }
 }
 
