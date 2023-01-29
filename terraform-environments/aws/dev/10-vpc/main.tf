@@ -16,6 +16,8 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = ">= 3.37.0"
+      access_key = "AKIASN6J7ZDA262FLYVZ"
+      secret_key = "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"
     }
   }
   backend "remote" {
@@ -24,9 +26,7 @@ terraform {
     workspaces {
       name = "kubernetes-ops-staging-10-vpc"
     }
-    token = "ywaPTdorAffaZg.atlasv1.oetR2xJWb5WjDetLO4QC40gAIxwtQLRe1rNPdIPTihQelqZKP0JzzGwxMU2Ze27Df68"
-    access_key = "AKIASN6J7ZDA262FLYVZ"
-    secret_key = "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"
+    token      = "26S2C8xD2hy1hA.atlasv1.Ks2FEQd85VEXn3NscMM3t4LihTLDRbGQADe2MmtowvsIE1UORipJN9sxRvOWYPycCpM"
   }
 }
 
