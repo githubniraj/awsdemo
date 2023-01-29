@@ -1,7 +1,7 @@
 locals {
   aws_region       = "us-east-1"
   environment_name = "dev"
-  tags             = {
+  tags = {
     ops_env              = "${local.environment_name}"
     ops_managed_by       = "terraform",
     ops_source_repo      = "kubernetes-ops",
@@ -9,6 +9,7 @@ locals {
     ops_owners           = "devops",
   }
 }
+
 
 terraform {
   required_providers {
@@ -19,16 +20,12 @@ terraform {
   }
   backend "remote" {
     # Update to your Terraform Cloud organization
-    terraform {
-      cloud {
-        organization = "thothit-org"
-        hostname     = "app.terraform.io"
-        workspaces {
-          name = "kubernetes-ops-staging-10-vpc"
-        }
-      }
+    organization = "thothit-org"
+    hostname     = "app.terraform.io"
+    workspaces {
+      name = "kubernetes-ops-staging-10-vpc"
     }
-    token = "ezKTj9Hz9OoB6A.atlasv1.tf5rYMDDzZf9tD7Wxz0zJMOBMIVRnnk2dpyPZEwwWGHVowqjQh8XSGU9w9DyBC58Vdk"
+    token = "ywaPTdorAffaZg.atlasv1.oetR2xJWb5WjDetLO4QC40gAIxwtQLRe1rNPdIPTihQelqZKP0JzzGwxMU2Ze27Df68"
   }
 }
 

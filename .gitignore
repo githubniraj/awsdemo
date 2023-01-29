@@ -139,3 +139,7 @@ dmypy.json
 .pyre/
 
 
+#terraform
+/terraform-environments/aws/dev/10-vpc/.terraform/*
+/terraform-environments/aws/dev/10-vpc/.terraform.lock.hcl
+
