@@ -25,6 +25,8 @@ terraform {
       name = "kubernetes-ops-staging-10-vpc"
     }
     token = "ywaPTdorAffaZg.atlasv1.oetR2xJWb5WjDetLO4QC40gAIxwtQLRe1rNPdIPTihQelqZKP0JzzGwxMU2Ze27Df68"
+    access_key = "AKIASN6J7ZDA262FLYVZ"
+    secret_key = "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"
   }
 }
 
