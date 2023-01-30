@@ -18,7 +18,6 @@ terraform {
     workspaces {
       name = "kubernetes-ops-staging-10-vpc"
     }
-    token = "9hAX79ykMcKZ3A.atlasv1.QlgQoU6qpGyw2yW3phvwDDlhi6g08jATdUDJ8lQcYLABbBWqQXnUHz8rm7br6Wcly2c"
   }
   required_providers {
     aws = {
