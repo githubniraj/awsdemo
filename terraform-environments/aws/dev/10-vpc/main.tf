@@ -4,7 +4,7 @@ locals {
   tags = {
     ops_env              = "${local.environment_name}"
     ops_managed_by       = "terraform",
-    ops_source_repo      = "kubernetes-ops",
+    ops_source_repo      = "awsdemo",
     ops_source_repo_path = "terraform-environments/aws/${local.environment_name}/10-vpc",
     ops_owners           = "devops",
   }
@@ -12,19 +12,19 @@ locals {
 
 
 terraform {
-  required_providers {
-    aws = {
-      source     = "hashicorp/aws"
-      version    = ">= 3.37.0"
-    }
-  }
-  backend "remote" {
+  cloud {
     # Update to your Terraform Cloud organization
     organization = "thothit-org"
     workspaces {
       name = "kubernetes-ops-staging-10-vpc"
     }
-    token = "26S2C8xD2hy1hA.atlasv1.Ks2FEQd85VEXn3NscMM3t4LihTLDRbGQADe2MmtowvsIE1UORipJN9sxRvOWYPycCpM"
+    token = "9hAX79ykMcKZ3A.atlasv1.QlgQoU6qpGyw2yW3phvwDDlhi6g08jATdUDJ8lQcYLABbBWqQXnUHz8rm7br6Wcly2c"
+  }
+  required_providers {
+    aws = {
+      source     = "hashicorp/aws"
+      version    = ">= 3.37.0"
+    }
   }
 }
 
