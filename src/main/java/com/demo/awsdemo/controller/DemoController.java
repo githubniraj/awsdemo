@@ -1,5 +1,6 @@
 package com.demo.awsdemo.controller;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +14,9 @@ public class DemoController
         return "I'm Anil.";
     }
 
-
-
+    @DeleteMapping(value = "/delete")
+    public String deleteStudents()
+    {
+        return "I'm Delete.";
+    }
 }
