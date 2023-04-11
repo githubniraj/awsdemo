@@ -24,10 +24,4 @@ public class DemoController
         return "I'm PUT";
     }
 
-    @PostMapping(value = "/post")
-    public String postStudents()
-    {
-        return "I'm Post";
-    }
-
 }
