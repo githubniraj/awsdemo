@@ -27,4 +27,10 @@ public class DemoController
         return "I'm PUT";
     }
 
+    @PutMapping(value = "/put1")
+    public String putStudents1()
+    {
+        return "I'm PUT 1";
+    }
+
 }
