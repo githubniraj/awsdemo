@@ -21,6 +21,12 @@ public class DemoController
         return "I'm Delete.";
     }
 
+    @DeleteMapping(value = "/delete1")
+    public String deleteStudents1()
+    {
+        return "I'm Delete 1.";
+    }
+
     @PutMapping(value = "/put")
     public String putStudents()
     {
