@@ -1,30 +1,37 @@
 package com.demo.awsdemo.controller;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.demo.awsdemo.service.DemoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class DemoController
 {
 
+    DemoService service = new DemoService();
+
     @GetMapping(value = "/get")
     public String getStudents()
     {
-        return "I'm Anil.";
+        return service.getStudents();
     }
 
     @DeleteMapping(value = "/delete")
     public String deleteStudents()
     {
-        return "I'm Delete.";
+        return service.deleteStudents();
     }
 
     @PutMapping(value = "/put")
     public String putStudents()
     {
-        return "I'm PUT";
+        return service.putStudents();
+    }
+
+    @PostMapping(value = "/post")
+    public String postStudents()
+    {
+        return service.postStudents();
     }
 
     @PutMapping(value = "/put1")
