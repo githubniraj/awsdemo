@@ -5,33 +5,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class DemoController
-{
+public class DemoController{
+        DemoService service = new DemoService();
 
-    DemoService service = new DemoService();
-
-    @GetMapping(value = "/get")
-    public String getStudents()
+    //@GetMapping(value = "/get")
+    @GetMapping("/students/{id}")
+    public String getStudents(@PathVariable Integer id)
     {
-        return service.getStudents();
+        return service.getStudents(id);
     }
 
-    @DeleteMapping(value = "/delete")
-    public String deleteStudents()
+    @DeleteMapping("/students/{id}")
+    public String deleteStudents(@PathVariable  Integer id)
     {
-        return service.deleteStudents();
+        return service.deleteStudents(id);
     }
 
-    @PutMapping(value = "/put")
-    public String putStudents()
+    @PutMapping(value = "/students/{id}/{student}")
+    public String putStudents(@PathVariable Integer id, @PathVariable String student)
     {
-        return service.putStudents();
+        return service.putStudents(id, student);
     }
 
-    @PostMapping(value = "/post")
-    public String postStudents()
+    @PostMapping("/students/{id}/{student}")
+    public String postStudents(@PathVariable Integer id, @PathVariable String student)
     {
-        return service.postStudents();
+       return service.postStudents(id, student);
     }
 
 }

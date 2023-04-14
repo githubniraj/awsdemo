@@ -9,27 +9,25 @@ import org.springframework.web.bind.annotation.PutMapping;
 public class DemoService {
 
     DemoDAO dao = new DemoDAO();
-    public String getStudents()
+    public String getStudents(Integer id)
     {
-        return dao.getStudents();
+        return dao.getStudents(id);
     }
 
 
-    public String deleteStudents()
+    public String deleteStudents(Integer id)
     {
-        return dao.deleteStudents();
+       return dao.deleteStudents(id);
     }
 
 
-    public String putStudents()
+    public String putStudents(Integer id, String student)
     {
-        return dao.putStudents();
+        return dao.putStudents(id, student);
     }
 
-    public String postStudents()
+    public String postStudents(Integer id, String student)
     {
-        return dao.postStudents();
+        return dao.postStudents(id, student);
     }
-
-
 }
