@@ -1,56 +1,58 @@
 package com.demo.awsdemo.dao;
 
+
+import com.demo.awsdemo.model.Student;
+import org.springframework.stereotype.Component;
+
 import java.util.*;
+
+@Component
 public class DemoDAO {
-    HashMap <Integer, String> students = new HashMap<>();
 
-    public DemoDAO (){
-        students.put(1, "Surendra");
-        students.put(2, "Milind");
-        students.put(3, "Sanjay");
+    Set<Student> students = new HashSet<>();
+    public DemoDAO(){
+        this.students.add(new Student(1, "Sanchay"));
+        this.students.add(new Student(2, "Surendra"));
+        this.students.add(new Student(3, "Mil"));
     }
 
-    // Check is key exists in the Map
-    boolean isIdPresent;
-    public String getStudents(Integer id)
-    {
-        // Check if key exists in the Map
-        isIdPresent = students.containsKey(id);
-
-        if (isIdPresent) {
-            return students.get(id);
-        }
-        return ("Student with id "+ id +" is not found...");
+    public Optional<Student> get(int id) {
+        Student student = students.stream().filter(std->id == std.getId()).findFirst().orElse(null);
+        return Optional.ofNullable(student);
     }
 
-    public String deleteStudents(Integer id)
-    {
-        isIdPresent = students.containsKey(id);
-        if (isIdPresent) {
-            students.remove(id);
-            return ("Student with id "+ id +" has been deleted...");
+    public boolean idExists(int id){
+        Student student = students.stream().filter(std->id == std.getId()).findFirst().orElse(null);
+        if(student==null){
+            return false;
         }
-        return ("Student with id "+ id +" is not found. Cannot be deleted..");
+        else{
+            return true;
+        }
     }
 
-    public String putStudents(Integer id, String student)
-    {
-        isIdPresent = students.containsKey(id);
-        if (isIdPresent){
-            students.put(id, student);
-            return ("Student with id "+id+" has been updated with name "+student);
-        }
-        return ("Student with id "+ id+" does not exists. Cannot be updated.");
+    public Collection<Student> getAll() {
+        return students;
     }
 
-    public String postStudents(Integer id, String student)
-    {
-        isIdPresent = students.containsKey(id);
-        if (!isIdPresent){
-            students.put(id, student);
-            return ("Student " +student+ " with id "+id+" has been added.");
+    public int post(Student student) {
+        if(idExists(student.getId())){
+            return 0;
+        }else{
+            this.students.add(student);
+            return 1;
         }
-        return ("Student with id "+ id+" already exists. Cannot be added.");
+    }
+
+    public int put(Student student) {
+        this.students.remove(students.stream().filter(std->student.getId() == std.getId()).findFirst().orElse(null));
+        this.students.add(student);
+        return 1;
+    }
+
+    public int delete(int id) {
+        this.students.remove(students.stream().filter(std->id == std.getId()).findFirst().orElse(null));
+        return 1;
     }
 
 }

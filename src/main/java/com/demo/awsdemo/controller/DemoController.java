@@ -1,36 +1,50 @@
 package com.demo.awsdemo.controller;
 
+import com.demo.awsdemo.model.Student;
 import com.demo.awsdemo.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+import java.util.Optional;
+
 @RestController
-public class DemoController{
-        DemoService service = new DemoService();
 
-    //@GetMapping(value = "/get")
-    @GetMapping("/students/{id}")
-    public String getStudents(@PathVariable Integer id)
+public class DemoController
+{
+    DemoService demoService=new DemoService();
+
+    @GetMapping(value = "/get/{id}")
+    public ResponseEntity<Optional<Student>> getStudent(@PathVariable int id)
     {
-        return service.getStudents(id);
+        Optional<Student> student = demoService.getStudent(id);
+        return ResponseEntity.ok().body(student);
     }
 
-    @DeleteMapping("/students/{id}")
-    public String deleteStudents(@PathVariable  Integer id)
+    @GetMapping(value = "/getall")
+    public ResponseEntity<Collection<Student>>  getStudents()
     {
-        return service.deleteStudents(id);
+        Collection<Student> students = demoService.getAllStudent();
+        return ResponseEntity.ok().body(students);
     }
 
-    @PutMapping(value = "/students/{id}/{student}")
-    public String putStudents(@PathVariable Integer id, @PathVariable String student)
+    @PostMapping(value = "/post")
+    public ResponseEntity<Integer> postStudent(Student student)
     {
-        return service.putStudents(id, student);
+        return ResponseEntity.ok().body(demoService.postStudent(student));
     }
 
-    @PostMapping("/students/{id}/{student}")
-    public String postStudents(@PathVariable Integer id, @PathVariable String student)
+    @PutMapping(value = "/put")
+    public ResponseEntity<Integer> putStudent(Student student)
     {
-       return service.postStudents(id, student);
+        return ResponseEntity.ok().body(demoService.putStudent(student));
     }
 
+    @DeleteMapping(value = "/delete/{id}")
+    public ResponseEntity<Integer> deleteStudent(@PathVariable int id)
+    {
+        return ResponseEntity.ok().body(demoService.deleteStudent(id));
+
+    }
 }
