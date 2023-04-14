@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 @RestController
+
 public class DemoController
 {
     DemoService demoService=new DemoService();
@@ -44,5 +45,6 @@ public class DemoController
     public ResponseEntity<Integer> deleteStudent(@PathVariable int id)
     {
         return ResponseEntity.ok().body(demoService.deleteStudent(id));
+
     }
 }
