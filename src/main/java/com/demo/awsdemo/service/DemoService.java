@@ -1,35 +1,39 @@
 package com.demo.awsdemo.service;
 
 import com.demo.awsdemo.dao.DemoDAO;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import com.demo.awsdemo.model.Student;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import java.util.Collection;
+import java.util.Optional;
 
+@Component
 public class DemoService {
 
-    DemoDAO dao = new DemoDAO();
-    public String getStudents()
+//    DemoDAO demoDao = new DemoDAO();
+    @Autowired
+    DemoDAO demoDao;
+    public Optional<Student> getStudent(int id) {
+        return demoDao.get(id);
+    }
+
+    public Collection<Student> getAllStudent() {
+        return demoDao.getAll();
+    }
+
+    public int postStudent(Student student) {
+        return demoDao.post(student);
+    }
+
+    public int putStudent(Student student)
     {
-        return dao.getStudents();
+        return demoDao.put(student);
     }
 
 
-    public String deleteStudents()
+    public int deleteStudent(int id)
     {
-        return dao.deleteStudents();
+        return demoDao.delete(id);
     }
-
-
-    public String putStudents()
-    {
-        return dao.putStudents();
-    }
-
-    public String postStudents()
-    {
-        return dao.postStudents();
-    }
-
-
 }
