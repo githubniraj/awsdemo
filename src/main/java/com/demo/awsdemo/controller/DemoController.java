@@ -1,37 +1,48 @@
 package com.demo.awsdemo.controller;
 
+import com.demo.awsdemo.model.Student;
 import com.demo.awsdemo.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
+import java.util.Optional;
 
 @RestController
 public class DemoController
 {
+    DemoService demoService=new DemoService();
 
-    DemoService service = new DemoService();
-
-    @GetMapping(value = "/get")
-    public String getStudents()
+    @GetMapping(value = "/get/{id}")
+    public ResponseEntity<Optional<Student>> getStudent(@PathVariable int id)
     {
-        return service.getStudents();
+        Optional<Student> student = demoService.getStudent(id);
+        return ResponseEntity.ok().body(student);
     }
 
-    @DeleteMapping(value = "/delete")
-    public String deleteStudents()
+    @GetMapping(value = "/getall")
+    public ResponseEntity<Collection<Student>>  getStudents()
     {
-        return service.deleteStudents();
-    }
-
-    @PutMapping(value = "/put")
-    public String putStudents()
-    {
-        return service.putStudents();
+        Collection<Student> students = demoService.getAllStudent();
+        return ResponseEntity.ok().body(students);
     }
 
     @PostMapping(value = "/post")
-    public String postStudents()
+    public ResponseEntity<Integer> postStudent(Student student)
     {
-        return service.postStudents();
+        return ResponseEntity.ok().body(demoService.postStudent(student));
     }
 
+    @PutMapping(value = "/put")
+    public ResponseEntity<Integer> putStudent(Student student)
+    {
+        return ResponseEntity.ok().body(demoService.putStudent(student));
+    }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public ResponseEntity<Integer> deleteStudent(@PathVariable int id)
+    {
+        return ResponseEntity.ok().body(demoService.deleteStudent(id));
+    }
 }
