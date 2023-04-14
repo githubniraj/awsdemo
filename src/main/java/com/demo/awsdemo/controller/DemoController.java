@@ -12,8 +12,7 @@ import java.util.Optional;
 @RestController
 public class DemoController
 {
-    @Autowired
-    DemoService demoService;
+    DemoService demoService=new DemoService();
 
     @GetMapping(value = "/get/{id}")
     public ResponseEntity<Optional<Student>> getStudent(@PathVariable int id)
