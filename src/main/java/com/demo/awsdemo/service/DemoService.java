@@ -2,7 +2,7 @@ package com.demo.awsdemo.service;
 
 import com.demo.awsdemo.dao.DemoDAO;
 import com.demo.awsdemo.model.Student;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
@@ -12,17 +12,32 @@ import java.util.Optional;
 public class DemoService {
 
 
+
+
+
     DemoDAO demoDao = new DemoDAO();
     public Optional<Student> getStudent(int id) {
-        if(id<=0){
-            throw new IllegalArgumentException("Illegal arguments");
+        Optional<Student> student = Optional.empty();
+        try {
+
+            if (id <= 0) {
+                throw new IllegalArgumentException("Illegal arguments");
+            }
+            student = demoDao.get(id);
+            if (!student.isPresent())
+                throw new IllegalArgumentException("invalid input");
+            return student;
         }
-        return demoDao.get(id);
+        catch (Exception e){
+            return Optional.empty();
+        }
     }
+
 
     public Collection<Student> getAllStudent() {
         return demoDao.getAll();
     }
+
 
     public int postStudent(Student student) {
         if(student==null || student.getId()<=0){
