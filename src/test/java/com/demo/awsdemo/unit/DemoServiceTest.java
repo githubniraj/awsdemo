@@ -29,8 +29,11 @@ public class DemoServiceTest {
     @InjectMocks
     private DemoService demoService;
 
+    private Student std;
+
     @BeforeAll
     public void setUp() {
+        std = new Student(10, "Ram");
         MockitoAnnotations.openMocks(this);
     }
 
@@ -60,5 +63,24 @@ public class DemoServiceTest {
         Optional<Student> student = demoService.getStudent(1);
         assertTrue(!student.isPresent());
         Mockito.verify(demoDAO,Mockito.times(1)).get(Mockito.anyInt());
+    }
+
+    @Test
+    public void testPostStudentHappyPath(){
+        Mockito.when(demoDAO.post(Mockito.any(Student.class))).thenReturn(1);
+        int returnValue = demoService.postStudent(std);
+        assertTrue(returnValue==1);
+        assertTrue(std!=null);
+        assertEquals(returnValue, 1);
+        Mockito.verify(demoDAO, Mockito.times(1)).post(std);
+    }
+
+    @Test
+    public void testPostStudentExceptionPath(){
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            demoService.postStudent(null);
+        });
+        String expectedMessage = "Illegal arguments";
+        String actualMessage = exception.getMessage();
     }
 }
