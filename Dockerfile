@@ -39,5 +39,10 @@ EXPOSE 8080
 #See container
 #docker container ls -a
 
+#Start container
+#docker container start awsdemo
+
+## But if you do docker container rm awsdemo then start wont work coz the image is gone
+
 
 
