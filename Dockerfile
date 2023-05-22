@@ -36,5 +36,8 @@ EXPOSE 8080
 #Stop container
 #docker container stop awsdemo
 
+#See container
+#docker container ls -a
+
 
 
