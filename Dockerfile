@@ -33,5 +33,8 @@ EXPOSE 8080
 #docker registry and run the container for us
 #docker container run -d --name awsdemo -p 8080:8080 nirajdrn/aws-demo:awsdemoV1
 
+#Stop container
+#docker container stop awsdemo
+
 
 
